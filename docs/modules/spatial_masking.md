@@ -1,0 +1,2 @@
+# Spatial masking
+:laughing:
