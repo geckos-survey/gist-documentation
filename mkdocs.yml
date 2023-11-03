@@ -50,7 +50,12 @@ markdown_extensions:
 nav:
   - Home: 'index.md'
   - Overview: 'overview.md'
-  - Installation: 'installation.md'
+  - Usage: 
+    - 'Installation': 'usage/installation.md'
+    - 'Useful information': 'usage/usefulinfo.md'
+    - 'Getting started': 'usage/gettingstarted.md'
+    - 'Configuration': 'usage/configuration.md'
+    - 'The MasterConfig.yaml file': 'usage/masterconfig.md'
   - Modules: 
     - 'Read data': 'modules/read_data.md'
     - 'Spatial masking': 'modules/spatial_masking.md'
