@@ -1,4 +1,7 @@
 # The `MasterConfig.yaml` file
+
+The input for gist-geckos is a convineient, human-readable python YAML file. This file is tab-sensitive, so please conserve the structure when editing. An example MasterConfig.yaml file is shown below. 
+
 ```py
 # This is a test config file
 GENERAL :

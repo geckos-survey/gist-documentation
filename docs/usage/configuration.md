@@ -50,9 +50,9 @@ The directory `configFiles/` contains all relevant configuration files. These ar
 
 `lsBands.config`: This file states the wavelength bands of the line strength indices measured by the lineStrengths module. It further defines which indices to consider for the conversion of line strength indices to stellar population properties. Note that this configuration file only affects the lineStrengths module.
 
-`specMask_KIN`: This files defines spectral regions to be masked during the stellarKinematics analysis.
+`specMask_KIN`: This files defines spectral regions to be masked during the stellarKinematics analysis. All sky lines and emission lines are masked in this file.
 
-`specMask_SFH`: This files defines spectral regions to be masked during the starFormationHistories analysis.
+`specMask_SFH`: This files defines spectral regions to be masked during the starFormationHistories analysis. Only sky lines are masked in this file (i.e. emission lines are not masked.)
 
 The files `emissionLinesPHANGS.config`, `lsBands.config`, `specMask_KIN` and `specMask_SFH` can be different for different runs of the pipeline. Therefore, the files provided in `configFiles/` should only be considered as templates. The used versions of these files always need to be defined in the corresponding parameters in `MasterConfig.yaml`.
 
