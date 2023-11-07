@@ -62,6 +62,7 @@ nav:
     - 'Spatial binning': 'modules/spatial_binning.md'
     - 'Prepare spectra': 'modules/prepare_spectra.md'
     - 'Stellar kinematics': 'modules/stellar_kinematics.md'
+    - 'Continuum cube creation': 'modules/continuum_cube.md'
     - 'Emission lines': 'modules/emission_lines.md'
     - 'Stellar populations': 'modules/stellar_populations.md'
     - 'Line strengths': 'modules/line_strengths.md'
