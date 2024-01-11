@@ -66,6 +66,6 @@ nav:
     - 'Emission lines': 'modules/emission_lines.md'
     - 'Stellar populations': 'modules/stellar_populations.md'
     - 'Line strengths': 'modules/line_strengths.md'
-
+  - Contact: 'contact.md'
 
 

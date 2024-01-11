@@ -24,10 +24,27 @@ If you do not use conda or another package manager, make sure you are running gi
 ### Installing gist-geckos 
 In your new python environment navigate to the gist-geckos/ folder and run 
 ```py
-python setup.py install
+pip install .
 ```
 
 That's it! gist-geckos should be installed and ready to use. :lizard:
 
-
-
+### Updating gist-geckos 
+You should always check for new updates. before running gist-geckos. In your the gist-geckos/ folder type 
+```py
+git pull --all
+```
+and then reisntall any new updates using pip:
+```py
+pip install .
+```
+If you have any issues with the code not updating, try 
+```py
+pip uninstall gistPipeline
+pip install .
+```
+If even that doesn't work, remove the .egg directory
+```py
+rem -r gistPipeline.egg-info
+pip install .
+```
