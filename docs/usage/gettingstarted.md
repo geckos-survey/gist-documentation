@@ -1,7 +1,7 @@
 # Getting started
 
-### Running `gist-geckos`
-Once you have cloned the two githab repos and installed gist-geckos, you will be able to test the installation using the test cube, NGC 0000. gist-geckos is initially configured such that your working directory is `gistTutorial/`. In this working directory, execute the following command:
+### Running `nGIST`
+Once you have cloned the two githab repos and installed nGIST, you will be able to test the installation using the test cube, NGC 0000. nGIST is initially configured such that your working directory is `gistTutorial/`. In this working directory, execute the following command:
 
 ```
 gistPipeline --config configFiles/MasterConfig.yaml --default-dir configFiles/defaultDir

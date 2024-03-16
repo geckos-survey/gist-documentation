@@ -1,7 +1,7 @@
 # Useful information
 
 ### Folder setup
-The gistTutorial folder contained within the `gist-geckos-supp-public` repo is your working directory. Within it, you will find four folders: `configFiles`, `inputData`, `results`, and `spectralTemplates`. 
+The gistTutorial folder contained within the `nGIST-supplementary-public` repo is your working directory. Within it, you will find four folders: `configFiles`, `inputData`, `results`, and `spectralTemplates`. 
 
 - `configFiles`: contains your `MasterConfig.yaml` file, as well as some files describing the LSF of your chosen instrument and SSP template set. Also included are some files describing the emission lines to fit, and the line strengh indices. 
 
@@ -15,4 +15,4 @@ The gistTutorial folder contained within the `gist-geckos-supp-public` repo is y
 The gistTutorial folder comes with the default NGC0000.fits and NGC0000_mask.fits files. These are small MUSE data cubes which may be used for initial testing because they will run quicker.
 
 ### Basic usage
-gist-geckos takes the settings from your input MasterConfig file and feeds them into the gist-geckos pipeline. Therefore, all you need to edit is the MasterConfig.yaml file before each run. 
+nGIST takes the settings from your input MasterConfig file and feeds them into the nGIST pipeline. Therefore, all you need to edit is the MasterConfig.yaml file before each run. 

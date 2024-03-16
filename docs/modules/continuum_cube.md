@@ -1,7 +1,7 @@
 # Continuum cube creation
 
 ## Purpose 
-Create continuum-only and continuum-subtracted line-only cubes. gist-geckos is currently equipped with one routine that can readily be used by setting the configuration parameter `CONT: METHOD` to `'ppxf'`. In particular, this routine employs the pPXF routine of Cappellari and Emsellem (2004). pPXF is run with multiplicative polynomials (more appropriate to match the shape of the spectra), and the bestfit saved as the continuum cube. Subtracting the continuum cube from the original spectrum gives the line-only cube. 
+Create continuum-only and continuum-subtracted line-only cubes. nGIST is currently equipped with one routine that can readily be used by setting the configuration parameter `CONT: METHOD` to `'ppxf'`. In particular, this routine employs the pPXF routine of Cappellari and Emsellem (2004). pPXF is run with multiplicative polynomials (more appropriate to match the shape of the spectra), and the bestfit saved as the continuum cube. Subtracting the continuum cube from the original spectrum gives the line-only cube. 
 
 ## Config file input 
 ```py

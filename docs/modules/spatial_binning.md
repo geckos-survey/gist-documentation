@@ -4,7 +4,7 @@
 
 The purpose of the module is to spatially bin the data, for instance in order to obtain an approximately constant signal-to-noise ratio throughout the field-of-view. Alternatively, one could use this step in the workflow to isolate spectra of specific features, e.g. globular cluster or planetary nebulae, and continue the analysis only with these. In this way the GIST could simply be turned into a specific tool for the analysis of globular clusters or planetary nebulae.
 
-gist-geckos is currently equipped with one routine to spatially bin the data. This routine is included in the source and exploits the adaptive Voronoi tesselation routine of Cappellari & Copin (2003). It can readily be used by setting the configuration parameter `SPATIAL_BINNING:METHOD` to `'voronoi'`.
+nGIST is currently equipped with one routine to spatially bin the data. This routine is included in the source and exploits the adaptive Voronoi tesselation routine of Cappellari & Copin (2003). It can readily be used by setting the configuration parameter `SPATIAL_BINNING:METHOD` to `'voronoi'`.
 
 In addition, the module determines the closest valid Voronoi bin for all masked spaxels. These are assigned a negative BIN_ID, with the absolute value stating the BIN_ID of the closest valid Voronoi bin. A BIN_ID 0 is a valid Voronoi bin, in particular the one containing the spaxel with the highest signal-to-noise ratio.
 

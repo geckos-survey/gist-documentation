@@ -2,7 +2,7 @@
 
 ## Purpose 
 
-The `lineStrengths` module measures line strength indices from the observed spectra. gist-geckos is currently equipped with one routine that can readily be used by setting the configuration parameter `LS: METHOD` to `'default'`. In particular, this routine employs a Python translation of the line strength measurement routine of Kuntschner et al. (2006) and the routine of Martin-Navarro et al. (2018) in order to match the measured line strength indices to single stellar population equivalent population properties.
+The `lineStrengths` module measures line strength indices from the observed spectra. nGIST is currently equipped with one routine that can readily be used by setting the configuration parameter `LS: METHOD` to `'default'`. In particular, this routine employs a Python translation of the line strength measurement routine of Kuntschner et al. (2006) and the routine of Martin-Navarro et al. (2018) in order to match the measured line strength indices to single stellar population equivalent population properties.
 
 ## Config file input 
 

@@ -2,7 +2,7 @@
 
 ## Purpose 
 
-This module performs a full emission-line analysis of the observed spectra. gist-geckos is currently equipped with three routines that can readily be used by setting the configuration parameter `GAS: METHOD` to `ppxf`, `MAGPI-gandalf`, or `gandalf`.
+This module performs a full emission-line analysis of the observed spectra. nGIST is currently equipped with three routines that can readily be used by setting the configuration parameter `GAS: METHOD` to `ppxf`, `MAGPI-gandalf`, or `gandalf`.
 
 ### `pPXF` (recommended)
 Simultaneously fits the stellar continuum (using a set of SSPs) and emission lines (using a set of single-component Gaussian templates) to the spectra. This method is significantly faster than the gandalf and magpi-gandalf methods, and hence is the recommended method. This module is based on the PHANGS DAP emission line module, but includes the option of a 3-step sigma-clipping technique to accurately characterise the noise, and reject spurrious pixels. 

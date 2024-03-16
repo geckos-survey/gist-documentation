@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The purpose of the module is to prepare the spectra for the analysis, in particular by applying the binning pattern to the spectra and log-rebinning them. Note that the natural logarithm is used. gist-geckos is currently equipped with one routine to prepare the observed spectra for the analysis. This routine is included in the source code and can readily be used by setting the configuration parameter `PREPARE_SPECTRA: METHOD` to `'default'`.
+The purpose of the module is to prepare the spectra for the analysis, in particular by applying the binning pattern to the spectra and log-rebinning them. Note that the natural logarithm is used. nGIST is currently equipped with one routine to prepare the observed spectra for the analysis. This routine is included in the source code and can readily be used by setting the configuration parameter `PREPARE_SPECTRA: METHOD` to `'default'`.
 
 In particular, it
 

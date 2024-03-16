@@ -2,7 +2,7 @@
 
 ## Purpose 
 
-The starFormationHistories module derives non-parametric star formation histories from the observed spectra. gist-geckos is currently equipped with one routine that can readily be used by setting the configuration parameter `SFH: METHOD` to `'ppxf'`. In particular, this routine employs the pPXF routine of Cappellari & Emsellem (2004).
+The starFormationHistories module derives non-parametric star formation histories from the observed spectra. nGIST is currently equipped with one routine that can readily be used by setting the configuration parameter `SFH: METHOD` to `'ppxf'`. In particular, this routine employs the pPXF routine of Cappellari & Emsellem (2004).
 
 There are several options for the treatment of emission lines in this module:
 

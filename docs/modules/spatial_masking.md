@@ -1,7 +1,7 @@
 # Spatial masking
 
 ## Purpose
-gist-geckos is currently equipped with one routine to mask spatial regions in the IFU cube. This routine is included in the source code and can readily be used by setting the configuration parameter `SPATIAL_MASKING: METHOD` to default. This routine performs three tasks:
+nGIST is currently equipped with one routine to mask spatial regions in the IFU cube. This routine is included in the source code and can readily be used by setting the configuration parameter `SPATIAL_MASKING: METHOD` to default. This routine performs three tasks:
 
 - It masks defunct spaxels, i.e. spaxels with negative mean values or those containing np.nan’s.
 

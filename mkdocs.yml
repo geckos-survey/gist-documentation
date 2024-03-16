@@ -1,4 +1,4 @@
-site_name: gist-geckos documentation
+site_name: nGIST documentation
 theme:
   name: material
   features:

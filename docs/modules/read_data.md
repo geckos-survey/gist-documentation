@@ -18,7 +18,7 @@ Read the input data, for instance the IFU cube, and return the relevant informat
 
 - Determine the velscale of the spectra
 
-Currently, gist-geckos has been tested only with the following read in routine(s):
+Currently, nGIST has been tested only with the following read in routine(s):
  - `MUSE_WFM` The widefiels mode of the MUSE spectrograph without adaptive optics.
 
 ## Config file input

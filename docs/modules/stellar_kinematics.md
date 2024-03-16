@@ -1,7 +1,7 @@
 # Stellar kinematics
 
 ## Purpose 
-The `stellarKinematics` module measures the stellar kinematics of the observed spectra. gist-geckos is currently equipped with one routine that can readily be used by setting the configuration parameter `KIN: METHOD` to `'ppxf'`. In particular, this routine employs the pPXF routine of Cappellari and Emsellem (2004). More precisely:
+The `stellarKinematics` module measures the stellar kinematics of the observed spectra. nGIST is currently equipped with one routine that can readily be used by setting the configuration parameter `KIN: METHOD` to `'ppxf'`. In particular, this routine employs the pPXF routine of Cappellari and Emsellem (2004). More precisely:
 
 - Initial guesses: The used initial guess for the stellar velocity is 0 (as all spectra have been shifted to rest-frame). The initial guess for the velocity dispersion is defined in the configuration parameter `KIN: SIGMA`. Alternatively, one can define initial guesses for all bins separately, i.e. by supplying the file `*_kin-guess.fits` in the output directory before the run. This file must contain a column `V` and `SIGMA` (as in the output file `*_kin.fits`), defining an initial guess for each spatial bin.
 
@@ -9,7 +9,7 @@ The `stellarKinematics` module measures the stellar kinematics of the observed s
 
 - The module calculates the stellar Velocity, sigma, and higher-oder velocity moments (depending on how many are specified). An iterative sigma-cliiping process can be turned on to... EXPLAIN HERE.
 
-- A set of SSP templates must be input. Currently, gist-geckos can accept the MILES and eMILES libraries, the IndoUS library, and Walcher+year templates.  
+- A set of SSP templates must be input. Currently, nGIST can accept the MILES and eMILES libraries, the IndoUS library, and Walcher+year templates.  
 
 ## Config file input 
 
