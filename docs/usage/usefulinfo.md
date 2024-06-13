@@ -1,7 +1,7 @@
 # Useful information
 
 ### Folder setup
-The gistTutorial folder contained within the `nGIST-supplementary-public` repo is your working directory. Within it, you will find four folders: `configFiles`, `inputData`, `results`, and `spectralTemplates`. 
+The gistTutorial folder contained within the `nGIST_supplementary_public` repo is your working directory. Within it, you will find four folders: `configFiles`, `inputData`, `results`, and `spectralTemplates`. 
 
 - `configFiles`: contains your `MasterConfig.yaml` file, as well as some files describing the LSF of your chosen instrument and SSP template set. Also included are some files describing the emission lines to fit, and the line strengh indices. 
 
