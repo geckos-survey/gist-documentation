@@ -60,7 +60,7 @@ PREPARE_SPECTRA :
 # Stellar kinematics module
 KIN :
   METHOD : 'ppxf' # Name of the routine in stellarKinematics/ (without .py) to perform the tasks. Set 'False' 
-  # to turn off module. Set 'ppxf' to use the standard GIST implementation, exploiting the pPXF routine of 
+  # to turn off module. Set 'ppxf' to use the standard nGIST implementation, exploiting the pPXF routine of 
   # Cappellari & Emsellem (2004).
   SPEC_MASK : 'specMask_KIN' # File to define wavelength ranges to be masked during the stellar kinematics fit. 
   # The specified path is relative to the configDir path in defaultDir.
@@ -76,6 +76,24 @@ KIN :
   # saved in any case.
   LSF_TEMP : 'lsf_MILES' # Path of the file specifying the line-spread-function of the spectral templates. 
   # The specified path is relative to the configDir path in defaultDir.
+  TEMPLATE_SET : 'miles' # options are 'miles' or 'IndoUS' or 'walcher'
+  LIBRARY : 'MILES/' # options are 'MILES/', 'miles_ssp_ch/', 'IndoUS', and 'Walcher/'
+  NORM_TEMP : 'LIGHT' # Normalise the spectral template library to obtain light- or mass-weighted results [LIGHT / MASS]
+  DOCLEAN : True # Keyword to turn on/off the sigma clipping. Set to 'False' for testing.
+
+# Continuum Cube module
+CONT :
+  METHOD : 'ppxf' # Name of the routine in stellarKinematics/ (without .py) to perform the tasks. Set 'False' to turn off module. Set 'ppxf' to use the standard nGIST implementation, exploiting the pPXF routine of Cappellari & Emsellem (2004).
+  SPEC_MASK : 'specMask_KIN' # File to define wavelength ranges to be masked during the stellar kinematics fit. The specified path is relative to the configDir path in defaultDir.
+  LMIN : 4800 # Rest-frame wavelength range used for the stellar kinematics analysis [in Angst.]
+  LMAX : 7000
+  SIGMA : 100 # Initial guess of the velocity dispersion of the system [in km/s]
+  MOM : 4 # Number of kinematic moments to be extracted
+  ADEG : 0 # Degree of the additive Legendre polynomial. Set '-1' to not include any additive polynomials
+  MDEG : 8 # Degree of the multiplicative Legendre polynomial. Set '0' to not include any multiplicative polynomials
+  REDDENING : null # As opposed to None. Initial guess on the stellar reddening E(B-V), in order to measure the stellar reddening. Note: This cannot be used together with multiplicative polynomials.
+  MC_PPXF : 0 # Number of Monte-Carlo simulations to extract errors on the stellar kinematics. Formal errors are saved in any case.
+  LSF_TEMP : 'lsf_MILES' # Path of the file specifying the line-spread-function of the spectral templates. The specified path is relative to the configDir path in defaultDir.
   TEMPLATE_SET : 'miles' # options are 'miles' or 'IndoUS' or 'walcher'
   LIBRARY : 'MILES/' # options are 'MILES/', 'miles_ssp_ch/', 'IndoUS', and 'Walcher/'
   NORM_TEMP : 'LIGHT' # Normalise the spectral template library to obtain light- or mass-weighted results [LIGHT / MASS]
@@ -157,4 +175,8 @@ LS :
   TEMPLATE_SET : 'miles' # options are 'miles' or 'IndoUS'
   LIBRARY : 'MILES/' # options are 'MILES/', 'miles_ssp_ch/', or 'IndoUS/'
   NORM_TEMP : 'LIGHT' # Normalise the spectral template library to obtain light- or mass-weighted results [LIGHT / MASS]
+
+# User modules
+UMOD :
+  METHOD : False
 ```
