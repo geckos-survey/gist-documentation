@@ -22,21 +22,7 @@ PREPARE_SPECTRA :
 ## Output
 
 ### Files
-- `_AllSpectra.fits`, Extension 1:
-
-    - Contains the spectrum of each spaxel.
-
-    - Columns: `SPEC` Spectra | `ESPEC` Variance spectra
-
-    - Rows: One line per spaxel.
-
-    - Header: The header in extension 0 must contain the keyword `VELSCALE` which defines the width of one spectral pixel in velocity space.
-
-- `_AllSpectra.fits`, Extension 2:
-
-    - Columns: `LOGLAM` The corresponding wavelength array
-
-- `_BinSpectra.fits`, Extension 1:
+- `_BinSpectra.hdf5`, Extension 1:
 
     - Contains the Voronoi-binned spectra equally spaced in velocity domain (logarithmically binned).
 
@@ -46,7 +32,7 @@ PREPARE_SPECTRA :
 
     - Header: The header in extension 0 must contain the keyword `VELSCALE` which defines the width of one spectral pixel in velocity space.
 
-- `_BinSpectra.fits`, Extension 2:
+- `_BinSpectra.hdf5`, Extension 2:
 
     - Columns: `LOGLAM` The corresponding wavelength array
 
@@ -58,7 +44,7 @@ PREPARE_SPECTRA :
 
     - Rows: One line per bin.
 
-- `_BinSpectra_linear.fits`, Extension 2:
+- `_BinSpectra_linear.hdf5`, Extension 2:
 
     - Columns: `LOGLAM` The corresponding wavelength array
 
