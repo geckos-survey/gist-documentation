@@ -10,7 +10,7 @@ gistPipeline --config configFiles/MasterConfig.yaml --default-dir configFiles/de
 The pipeline will begin by printing the values input by your `MasterConfig.yaml` file, and then run through each module listed in the `MasterConfig.yaml` file in turn. Each step is printed in your terminal, and in the resultant logfile. 
 
 ### Output 
-Outputs are saved in the `gistTutorial/results/RUN_NAME` folder, where the `RUN_NAME` is specified in the `Matser_Config.yaml`. 
+Outputs are saved in the `gistTutorial/results/RUN_NAME` folder, where the `RUN_NAME` is specified in the `Master_Config.yaml`. 
 
 Current output files are:
 
