@@ -28,13 +28,13 @@ CONT :
 
 ### Files
 
-- `_KIN_ORIGcube.fits`, Extension 1:
+- `_ORIGcube.fits`, Extension 1:
     - The original cube, trimmed to the wavelength range defined by the `CONT: LMIN` and `CONT: LMAX` keywords. 
 
-- `_KIN_CONTcube.fits`, Extension 1:
+- `_CONTcube.fits`, Extension 1:
     - The bestfit to the continuum derived from full spectral fitting.
 
-- `_KIN_LINEcube.fits`, Extension 1:
+- `_LINEcube.fits`, Extension 1:
     - The line-only cube, derived by original cube - continuum cube.
 
 ### Function returns
