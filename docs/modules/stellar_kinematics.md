@@ -7,9 +7,9 @@ The `stellarKinematics` module measures the stellar kinematics of the observed s
 
 - A spectral mask is applied, according to the masking file defined by `KIN: SPEC_MASK`. See Configuration for details.
 
-- The module calculates the stellar Velocity, sigma, and higher-oder velocity moments (depending on how many are specified). An iterative sigma-cliiping process can be turned on to... EXPLAIN HERE.
+- The module calculates the stellar Velocity, sigma, and higher-oder velocity moments (depending on how many are specified, currently up to 6 have been tested). An iterative sigma-clipping process can be turned on to clean the spectra.
 
-- A set of SSP templates must be input. Currently, nGIST can accept the MILES and eMILES libraries, the IndoUS library, and Walcher+year templates.  
+- A set of SSP templates must be input. Currently, nGIST has been tested on the MILES stars and SSPs, eMILES, SMILES libraries, the IndoUS library, the X-shooter stellar library, and Walcher+2009 templates. Only the MILES SSPs are included in the default nGIST distribution, though any other library can be employed by writing a read-in module for it, following the example in your `/ngist/gistPipeline/prepareTemplates/miles.py` directory. 
 
 ## Config file input 
 
@@ -26,8 +26,8 @@ KIN :
   REDDENING : null # Initial guess on the stellar reddening E(B-V), in order to measure the stellar reddening. Note: This cannot be used together with multiplicative polynomials.
   MC_PPXF : 0 # Number of Monte-Carlo simulations to extract errors on the stellar kinematics. Formal errors are saved in any case.
   LSF_TEMP : 'lsf_MILES' # Path of the file specifying the line-spread-function of the spectral templates. The specified path is relative to the configDir path in defaultDir.
-  TEMPLATE_SET : 'miles' # options are 'miles' or 'IndoUS' or 'walcher'
-  LIBRARY : 'MILES/' # options are 'MILES/', 'miles_ssp_ch/', 'IndoUS', and 'Walcher/'
+  TEMPLATE_SET : 'miles' # 
+  LIBRARY : 'MILES/' # options are 'MILES/'
   NORM_TEMP : 'LIGHT' # Normalise the spectral template library to obtain light- or mass-weighted results [LIGHT / MASS]
   DOCLEAN : True # Keyword to turn on/off the sigma clipping. Set to 'False' for testing.
 ```
