@@ -39,11 +39,11 @@ pip install .
 ```
 If you have any issues with the code not updating, try 
 ```py
-pip uninstall gistPipeline
+pip uninstall ngistPipeline
 pip install .
 ```
 If even that doesn't work, remove the .egg directory
 ```py
-rem -r gistPipeline.egg-info
+rem -r ngistPipeline.egg-info
 pip install .
 ```
