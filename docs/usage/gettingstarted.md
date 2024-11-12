@@ -1,16 +1,16 @@
 # Getting started
 
 ### Running `nGIST`
-Once you have cloned the two github repositories and installed nGIST, you will be able to test the installation using the test cube, NGC 0000. nGIST is initially configured such that your working directory is `gistTutorial/`. In this working directory, execute the following command:
+Once you have cloned the two github repositories and installed nGIST, you will be able to test the installation using the test cube, NGC 0000. nGIST is initially configured such that your working directory is `ngistTutorial/`. In this working directory, execute the following command:
 
 ```
-gistPipeline --config configFiles/MasterConfig.yaml --default-dir configFiles/defaultDir
+ngistPipeline --config configFiles/MasterConfig.yaml --default-dir configFiles/defaultDir
 ```
 
 The pipeline will begin by printing the values input by your `MasterConfig.yaml` file, and then run through each module listed in the `MasterConfig.yaml` file in turn. Each step is printed in your terminal, and in the resultant logfile. 
 
 ### Output 
-Outputs are saved in the `gistTutorial/results/RUN_NAME` folder, where the `RUN_NAME` is specified in the `Master_Config.yaml`. 
+Outputs are saved in the `ngistTutorial/results/RUN_NAME` folder, where the `RUN_NAME` is specified in the `Master_Config.yaml`. 
 
 Current output files are:
 
@@ -44,7 +44,7 @@ Current output files are:
 ### Visualising your results 
 While the `MAPS.fits` files can be read in and plotted using e.g. python, the original GIST pipeline also developed the Mapviewer software, which enables a quick-look at your data. To use, run:
 ```py
-mapviewer
+Mapviewer
 ```
 in your terminal, making sure that you are using the python environment in which nGIST is installed. 
 
