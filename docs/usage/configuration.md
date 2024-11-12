@@ -1,7 +1,7 @@
 # Configuration
 
 ### Working directory
-While the GIST pipeline is installed in the system and can be executed from anywhere, directories containing the input, output, configuration, and spectral templates have to be defined. In the example working directory this is done with the file `defaultDir` in which the absolute paths to these directories should be defined. The path to this file needs to be supplied to the GIST pipeline with the command-line argument `default-dir`.
+While the nGIST pipeline is installed in the system and can be executed from anywhere, directories containing the input, output, configuration, and spectral templates have to be defined. In the example working directory this is done with the file `defaultDir` in which the absolute paths to these directories should be defined. The path to this file needs to be supplied to the mGIST pipeline with the command-line argument `default-dir`.
 
 An overview of these directories and some important files is provided below:
 
@@ -56,5 +56,5 @@ The directory `configFiles/` contains all relevant configuration files. These ar
 
 The files `emissionLinesPHANGS.config`, `lsBands.config`, `specMask_KIN` and `specMask_SFH` can be different for different runs of the pipeline. Therefore, the files provided in `configFiles/` should only be considered as templates. The used versions of these files always need to be defined in the corresponding parameters in `MasterConfig.yaml`.
 
-A detailed description of each configuration file is provided below.
+A detailed description of each configuration file is also provided.
 
