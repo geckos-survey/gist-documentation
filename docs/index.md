@@ -1,6 +1,7 @@
 # home
 
 ## Welcome to nGIST's documentation!
+<img align="right" src="images/nGIST_logo_transparent.png" width="30%" alt="The nGIST logo">
 
 Welcome the the documentation for the [nGIST pipeline!](https://github.com/geckos-survey/ngist)
 nGIST is the extension of the [gist pipeline](https://abittner.gitlab.io/thegistpipeline/), originally written by [Adrian Bittner](https://ui.adsabs.harvard.edu/abs/2019A%26A...628A.117B/abstract).
