@@ -1,2 +1,2 @@
-# gist-documentation
-Gist documentation
+# nGIST-documentation
+nGIST documentation
