@@ -7,7 +7,7 @@ The `stellarKinematics` module measures the stellar kinematics of the observed s
 
 - A spectral mask is applied, according to the masking file defined by `KIN: SPEC_MASK`. See Configuration for details.
 
-- The module calculates the stellar Velocity, sigma, and higher-oder velocity moments (depending on how many are specified, currently up to 6 have been tested). An iterative sigma-clipping process can be turned on to clean the spectra.
+- The module calculates the stellar velocity, sigma, and higher-order velocity moments (depending on how many are specified, currently up to 6 have been tested). An iterative sigma-clipping process can be turned on to clean the spectra.
 
 - A set of SSP templates must be input. Currently, nGIST has been tested on the MILES stars and SSPs, eMILES, SMILES libraries, the IndoUS library, the X-shooter stellar library, and Walcher+2009 templates. Only the MILES SSPs are included in the default nGIST distribution, though any other library can be employed by writing a read-in module for it, following the example in your `/ngist/ngistPipeline/prepareTemplates/miles.py` directory. 
 
@@ -70,6 +70,11 @@ KIN :
 
     - Columns: `LOGLAM_TEMPLATE` The corresponding wavelength array
 
+- _kin-SpectralMask.fits, Extension 1:
+
+  - Columns: `SPECTRAL_MASK` The spectral pixels masked out in the fit
+
+  - Rows: One mask per bin
 ### Function returns
 
 The module should end with `return(None)`. If an uncaught exception occurs in the module, all following modules will be skipped for this galaxy. If you intend to manually skip all subsequent modules, simply raise an exception.
