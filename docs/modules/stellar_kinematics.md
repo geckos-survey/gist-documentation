@@ -75,6 +75,9 @@ KIN :
   - Columns: `SPECTRAL_MASK` The spectral pixels masked out in the fit
 
   - Rows: One mask per bin
+  
+  - Test comment Jesse
+
 ### Function returns
 
 The module should end with `return(None)`. If an uncaught exception occurs in the module, all following modules will be skipped for this galaxy. If you intend to manually skip all subsequent modules, simply raise an exception.
