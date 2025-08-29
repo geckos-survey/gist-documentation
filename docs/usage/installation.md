@@ -10,18 +10,18 @@ Clone the `ngist` and `ngist-supplementary-public` repos to your local machine u
 
 `git clone https://github.com/geckos-survey/ngist_supplementary_public.git`
 
-### Setting up your python environment 
+### Setting up your Python environment 
 (optional, but strongly recommended)
-Setup a separate python environment to run nGIST in. The `gistenv.yaml` file located in the `ngist-supplementary-public` repo can be used to install all of the dependencies and specified versions into a conda environment using the following call:
+Set up a separate Python environment to run nGIST in. The `ngistenv.yaml` file located in the `ngist_supplementary_public` repo can be used to install all of the dependencies and specified versions into a conda environment using the following call:
 
 ```py
-conda env create -f gistenv.yaml
+conda env create -f ngistenv.yaml
 ```
 
 If you do not use conda or another package manager, make sure you are running nGIST using `python >3.11`, and the latest versions of `astropy`, `numpy`, `scipy`, `matplotlib`, `spectral-cube`, `extinction`, `pip`, `latex`, `pyqt5`, `joblib`, `h5py`, and `tqdm`.
 
 ### Installing nGIST 
-In your new python environment navigate to the ngist/ folder and run 
+In your new Python environment navigate to the ngist/ folder and run 
 ```py
 pip install .
 ```
@@ -29,11 +29,11 @@ pip install .
 That's it! nGIST should be installed and ready to use. :lizard:
 
 ### Updating nGIST 
-You should always check for new updates. before running nGIST. In your the ngist/ folder type 
+You should always check for new updates. before running nGIST. In your ngist/ folder type 
 ```py
 git pull --all
 ```
-and then reisntall any new updates using pip:
+and then reinstall any new updates using pip:
 ```py
 pip install .
 ```
