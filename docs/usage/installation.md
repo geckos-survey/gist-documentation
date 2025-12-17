@@ -49,7 +49,7 @@ pip install .
 ```
 
 ### Using a different branch than main 
-If you want to use a different branch than main, for example the dev-branch, go to your ngist/ folder type 
+If you want to use a different branch than main, for example the dev-branch, go to your ngist/ folder and type 
 ```py
 git checkout dev-branch
 ```
