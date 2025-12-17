@@ -44,7 +44,7 @@ pip install .
 ```
 If even that doesn't work, remove the .egg directory
 ```py
-rem -r ngistPipeline.egg-info
+rm -r ngistPipeline.egg-info
 pip install .
 ```
 
