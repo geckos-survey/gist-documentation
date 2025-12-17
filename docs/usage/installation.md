@@ -47,3 +47,10 @@ If even that doesn't work, remove the .egg directory
 rem -r ngistPipeline.egg-info
 pip install .
 ```
+
+### Using a different branch than main 
+If you want to use a different branch than main, for example the dev-branch, go to your ngist/ folder type 
+```py
+git checkout dev-branch
+```
+Then, go to your ngist_supplementary_public, and do the same to make sure your nGIST installation and tutorial are using the same branch.
