@@ -9,7 +9,7 @@ The `stellarKinematics` module measures the stellar kinematics of the observed s
 
 - The module calculates the stellar velocity, sigma, and higher-order velocity moments (depending on how many are specified, currently up to 6 have been tested). An iterative sigma-clipping process can be turned on to clean the spectra.
 
-- A set of SSP templates must be input. Currently, nGIST has been tested on the MILES stars and SSPs, eMILES, SMILES libraries, the IndoUS library, the X-shooter stellar library, and Walcher+2009 templates. Only the MILES SSPs are included in the default nGIST distribution, though any other library can be employed by writing a read-in module for it, following the example in your `/ngist/ngistPipeline/prepareTemplates/miles.py` directory. 
+- A set of SSP templates must be input. Currently, nGIST has been tested on the MILES stars and SSPs, eMILES, SMILES libraries, the IndoUS library, the X-shooter stellar library, and Walcher+2009 templates. Only the MILES library is included in the default nGIST distribution, though any other library can be employed by writing a read-in module for it, following the example in your `/ngist/ngistPipeline/prepareTemplates/miles.py` directory. 
 
 ## Config file input 
 
@@ -30,6 +30,11 @@ KIN :
   LIBRARY : 'MILES/' # options are 'MILES/'
   NORM_TEMP : 'LIGHT' # Normalise the spectral template library to obtain light- or mass-weighted results [LIGHT / MASS]
   DOCLEAN : True # Keyword to turn on/off the sigma clipping. Set to 'False' for testing.
+  OPT_TEMP : 'default' # Keyword to select Optimal Template method. Options are 'default', 'galaxy_single', 'galaxy_set'
+  DUST_CORR : True # True/False, fixes the dust in the final pPXF fit 
+  NOISE : 'variance' # Keyword to set noise to be used in pPXF run. Option 'constant' and 'variance'
+  PLOT : False # produce extra output plots
+  DEBUG_BIN : False # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
 ```
 
 ## Output 
