@@ -41,6 +41,8 @@ SPATIAL_MASKING :
   # Set 'False' to turn off module. Set 'default' to use the standard GIST implementation.
   MIN_SNR : 20.0 # Spaxels below the isophote level which has this mean signal-to-noise level are masked.
   MASK : 'NGC0000_mask.fits' # File containing a spatial mask (Set 'False' to not include a file).
+  THRESHOLD_METHOD : 'isophote' # Optional keyword to further define how the masking is performed. Default = 'isophote'. Options include 'actual'(use the actual snr map + a minimum snr), or 'smooth' (use a smoothed version of the snr map + minimum snr)
+
 
 # Spatial binning module
 SPATIAL_BINNING :
