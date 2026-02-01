@@ -2,7 +2,7 @@
 
 ## Purpose 
 
-The starFormationHistories module derives non-parametric star formation histories from the observed spectra. nGIST is currently equipped with one routine that can readily be used by setting the configuration parameter `SFH: METHOD` to `'ppxf'`. In particular, this routine employs the pPXF routine of Cappellari & Emsellem (2004).
+The starFormationHistories module derives non-parametric star formation histories from the observed spectra via full spectrum fitting. nGIST is currently equipped with one routine that can readily be used by setting the configuration parameter `SFH: METHOD` to `'ppxf'`. This routine employs the pPXF routine of Cappellari & Emsellem (2004).
 
 There are several options for the treatment of emission lines in this module:
 
@@ -31,6 +31,11 @@ SFH :
   LIBRARY : 'MILES_SFH/' # options are 'MILES/', 'miles_ssp_ch/', or 'IndoUS/'
   NORM_TEMP : 'LIGHT' # Normalise the spectral template library to obtain light- or mass-weighted results [LIGHT / MASS]
   DOCLEAN : True # Keyword to turn on/off the sigma clipping. Set to 'False' for testing.
+  OPT_TEMP : 'default' # Keyword to select Optimal Template method. Options are 'default', 'galaxy_single', 'galaxy_set'
+  DUST_CORR : True # True/False, fixes the dust in the final pPXF fit 
+  NOISE : 'variance' # Keyword to set noise to be used in pPXF run. Option 'constant' and 'variance'
+  PLOT : False # produce extra output plots
+  DEBUG_BIN : False # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
 ```
 
 ## Output 
@@ -43,13 +48,13 @@ SFH :
 
     - Rows: One line per bin.
 
-- `_sfh-weights.fits`: The weights assigned to each template during the fit
+- `_sfh_weights.fits`: The weights assigned to each template during the fit
 
     - Columns: `WEIGHTS` The weights
 
     - Rows: One line per bin.
 
-- `_sfh-bestfit.fits`, Extension 1:
+- `_sfh_bestfit.fits`, Extension 1:
 
     - The best fit to the spectrum
 
@@ -57,13 +62,17 @@ SFH :
 
     - Rows: One fit per bin.
 
-- `_sfh-bestfit.fits`, Extension 2:
+- `_sfh_bestfit.fits`, Extension 2:
 
     - Columns: `LOGLAM` The corresponding wavelength array
 
-- `_sfh-bestfit.fits`, Extension 3:
+- `_sfh_bestfit.fits`, Extension 3:
 
     - Columns: `GOODPIX` The spectral pixels included in the fit
+
+- `_sfh_maps.fits`
+
+    - FITS file containing 2D maps of the output stellar population properties, including age, metallicity, and alpha (if varying alpha templates included)
 
 ### Function returns
 
