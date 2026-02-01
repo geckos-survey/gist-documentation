@@ -67,5 +67,6 @@ nav:
     - 'Stellar populations': 'modules/stellar_populations.md'
     - 'Line strengths': 'modules/line_strengths.md'
   - Contact: 'contact.md'
+  - Publications: 'nGIST_publications.md'
 
 
