@@ -13,9 +13,11 @@ nGIST is currently equipped with one routine to mask spatial regions in the IFU 
 
 ```py
 SPATIAL_MASKING :
-  METHOD : 'default' #'default' # Name of the routine in spatialMasking/ (without .py) to perform the tasks. Set 'False' to turn off module. Set 'default' to use the standard GIST implementation.
+  METHOD : 'default' #'default' # Name of the routine in spatialMasking/ (without .py) to perform the tasks. 'default' to use the standard nGIST implementation.
   MIN_SNR : 1.5 # Spaxels below the isophote level which has this mean signal-to-noise level are masked.
   MASK : 'NGC0000_mask.fits' # File containing a spatial mask (Set 'False' to not include a file).
+  THRESHOLD_METHOD : 'isophote' # Optional keyword to further define how the masking is performed. Default = 'isophote'. Options include 'actual'(use the actual snr map + a minimum snr), or 'smooth' (use a smoothed version of the snr map + minimum snr)
+
 ```
 
 ## Output 
