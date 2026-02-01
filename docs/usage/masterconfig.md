@@ -14,7 +14,7 @@ GENERAL :
   REDSHIFT : 0.008764 # Initial guess on the redshift of the system [in z]. Spectra are shifted to rest-frame, 
   # according to this redshift.
   PARALLEL: True # Use multiprocessing [True/False]
-  NCPU : 3 # Number of cores to use for multiprocessing.
+  NCPU : 4 # Number of cores to use for multiprocessing.
   LSF_DATA : 'lsf_MUSE-WFM' # Path of the file specifying the line-spread-function of the observational data. 
   # The specified path is relative to the configDir path in defaultDir.
   OW_CONFIG : False #  Ignore configurations from previous runs which are saved in the CONFIG file in the 
@@ -28,7 +28,7 @@ READ_DATA :
   # Keep in mind to clean output directory after running in DEBUG mode!
   ORIGIN : 14,14 # Origin of the coordinate system in pixel coordinates: x,y (Indexing starts at 0).
   LMIN_TOT : 4750 # Spectra are shortened to the rest-frame wavelength range defined by LMIN_TOT and LMAX_TOT. 
-  # Note that this wavelength range should be longer than all other wavelength ranges supplied to the modules 
+  # Note that this wavelength range should be equal to or longer than all other wavelength ranges supplied to the subsequent modules 
   # [in Angst.]
   LMAX_TOT : 7100
   LMIN_SNR : 4750 # Rest-frame wavelength range used for the signal-to-noise calculation [in Angst.]
@@ -80,6 +80,11 @@ KIN :
   LIBRARY : 'MILES/' # options are 'MILES/', 'miles_ssp_ch/', 'IndoUS', and 'Walcher/'
   NORM_TEMP : 'LIGHT' # Normalise the spectral template library to obtain light- or mass-weighted results [LIGHT / MASS]
   DOCLEAN : True # Keyword to turn on/off the sigma clipping. Set to 'False' for testing.
+  OPT_TEMP : 'default' # Keyword to select Optimal Template method. Options are 'default', 'galaxy_single', 'galaxy_set'
+  DUST_CORR : True # True/False, fixes the dust in the final pPXF fit 
+  NOISE : 'variance' # Keyword to set noise to be used in pPXF run. Options 'constant' and 'variance'
+  PLOT : False # produce extra output plots for each bin
+  DEBUG_BIN : False # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
 
 # Continuum Cube module
 CONT :
@@ -98,19 +103,24 @@ CONT :
   LIBRARY : 'MILES/' # options are 'MILES/', 'miles_ssp_ch/', 'IndoUS', and 'Walcher/'
   NORM_TEMP : 'LIGHT' # Normalise the spectral template library to obtain light- or mass-weighted results [LIGHT / MASS]
   DOCLEAN : True # Keyword to turn on/off the sigma clipping. Set to 'False' for testing.
+  OPT_TEMP : 'default' # Keyword to select Optimal Template method. Options are 'default', 'galaxy_single', 'galaxy_set'
+  DUST_CORR : True # True/False, fixes the dust in the final pPXF fit 
+  NOISE : 'variance' # Keyword to set noise to be used in pPXF run. Option 'constant' and 'variance'
+  PLOT : False # produce extra output plots
+  DEBUG_BIN : False # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
 
 # Emission line fitting module
 GAS :
-  METHOD : 'ppxf' # options are 'ppxf', 'gandalf' or 'MAGPI_gandalf' Name of the routine in emissionLines/ (without .py) 
-  #to perform the tasks. Set 'False' to turn off module. 
-  SPEC_MASK : 'specMask_GAS'
+  METHOD : 'ppxf' # Name of the routine in emissionLines/ (without .py) Options are 'ppxf', or 'gandalf' 
+  #Set to 'False' to turn off module. 
+  SPEC_MASK : 'specMask_GAS' # File to define wavelength ranges to be masked during the stellar kinematics fit. The specified path is relative to the configDir path in defaultDir.
   LEVEL : 'BIN' # Set 'BIN' to perform the analysis bin-by-bin, 'SPAXEL' for a spaxel-by-spaxel analysis, and 'BOTH' 
   # to perform a spaxel-by-spaxel analysis that is informed by a previous bin-by-bin analysis.
   LMIN : 4750 # Rest-frame wavelength range used for the emission-line analysis [in Angst.]
   LMAX : 7100
   ERRORS : 0 # Derive errors on the emission-line analysis (0 No / 1 Yes). Note: Due to limitations in pyGandALF, 
   # this is currently not possible. We expect a new pyGandALF version to be published soon.
-  REDDENING : False # Include the effect of reddening by dust in the pyGandALF fit. Put in the form 0.1,0.1 without 
+  DUST_CORR : False # Include the effect of reddening by dust in the pyGandALF fit. Put in the form 0.1,0.1 without 
   # any spaces. If you intend to use multiplicative polynomials instead, set REDDENING to 'False' and add a 
   # MDEG keyword in the GAS section to set the polynomial order. Additive polynomials cannot be used with pyGandALF.
   MDEG : 8 # Degree of the multiplicative Legendre polynomial. Set '0' to not include any multiplicative polynomials.
@@ -118,11 +128,11 @@ GAS :
   MOM : 2 # Gas moments. Set to 2 for V and sigma. Higher orders not yet tested
   EBmV : null # De-redden the spectra for the Galactic extinction in the direction of the 
   # target previously to the analysis. Use e.g. EBmV = A_v / 3.2
-  EMI_FILE : 'emissionLinesPHANGS.config' # Emission line set-up file for emline fittet. The specified path is 
-  # relative to the configDir path in defaultDir.
+  EMI_FILE : 'emissionLines_ppxf.config' # Emission line set-up file for emline fittet. The specified path is 
+  # relative to the configDir path in defaultDir. Set to 'emissionLines_ppxf.config' when using the 'ppxf' routine, and 'emissionLines_gandalf.config' when using the 'gandalf' routine.
   LSF_TEMP : 'lsf_MILES' # Path of the file specifying the line-spread-function of the spectral templates. 
   # The specified path is relative to the configDir path in defaultDir.
-  TEMPLATE_SET : 'miles' # options are 'miles' or 'IndoUS'
+  TEMPLATE_SET : 'miles' # options are 'miles'
   LIBRARY : 'MILES_EMLINES/' # options are 'MILES_EMLINES/' (contains asmaller subset of templates sim 
   # to that used by PHANGS) 'MILES/', 'miles_ssp_ch', or 'IndoUS'
   NORM_TEMP : 'LIGHT' # Normalise the spectral template library to obtain light- or mass-weighted results [LIGHT / MASS]
@@ -155,10 +165,15 @@ SFH :
   NORM_TEMP : 'LIGHT' # Normalise the spectral template library to obtain light- or mass-weighted results 
   # [LIGHT / MASS]
   DOCLEAN : True # Keyword to turn on/off the sigma clipping. Set to 'False' for testing.
+  OPT_TEMP : 'default' # Keyword to select Optimal Template method. Options are 'default', 'galaxy_single', 'galaxy_set'
+  DUST_CORR : True # True/False, fixes the dust in the final pPXF fit 
+  NOISE : 'variance' # Keyword to set noise to be used in pPXF run. Option 'constant' and 'variance'
+  PLOT : False # produce extra output plots
+  DEBUG_BIN : False # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
 
 # Line strenghts module
 LS :
-  METHOD : False #'default' # Name of the routine in lineStrengths/ (without .py) to perform the tasks. 
+  METHOD : 'default' # Name of the routine in lineStrengths/ (without .py) to perform the tasks. 
   # Set 'False' to turn off module. Set 'default' to use the standard GIST implementation, exploiting the 
   # routines of Kuntschner et al. (2006) and Martin-Navarro et al. (2018).
   TYPE : 'SPP' # Set 'LS' to only measure line strength indices, or 'SPP' to also match these indices 
@@ -168,10 +183,10 @@ LS :
   CONV_COR : 8.4 # Spectral resolution [in Angst.] at which the line strength indices are measured.
   SPP_FILE : 'MILES_KB_LIS8.4.fits' # File providing predictions on line strength indices for a 
   # set of single stellar population models
-  MC_LS : 30 # Number of Monte-Carlo simulations in order to obtain errors on the line strength indices. 
+  MC_LS : 100 # Number of Monte-Carlo simulations in order to obtain errors on the line strength indices. 
   # Note: This must be turned on.
-  NWALKER : 10 # Number of walkers for the MCMC algorithm (used for the conversion of indices to population properties)
-  NCHAIN : 100 # Number of iterations in the MCMC algorithm (used for the conversion of indices to population properties)
+  NWALKER : 200 # Number of walkers for the MCMC algorithm (used for the conversion of indices to population properties)
+  NCHAIN : 200 # Number of iterations in the MCMC algorithm (used for the conversion of indices to population properties)
   LSF_TEMP : 'lsf_MILES' # Path of the file specifying the line-spread-function of the spectral templates. 
   # The specified path is relative to the configDir path in defaultDir.
   TEMPLATE_SET : 'miles' # options are 'miles' or 'IndoUS'
