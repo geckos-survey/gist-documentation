@@ -22,19 +22,24 @@ CONT :
   LIBRARY : 'MILES/' # options are 'MILES/', 'miles_ssp_ch/', 'IndoUS', and 'Walcher/'
   NORM_TEMP : 'LIGHT' # Normalise the spectral template library to obtain light- or mass-weighted results [LIGHT / MASS]
   DOCLEAN : True # Keyword to turn on/off the sigma clipping. Set to 'False' for testing.
+  OPT_TEMP : 'default' # Keyword to select Optimal Template method. Options are 'default', 'galaxy_single', 'galaxy_set'
+  DUST_CORR : True # True/False, fixes the dust in the final pPXF fit 
+  NOISE : 'variance' # Keyword to set noise to be used in pPXF run. Option 'constant' and 'variance'
+  PLOT : False # produce extra output plots
+  DEBUG_BIN : False # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
 ```
 
 ## Output 
 
 ### Files
 
-- `_ORIGcube.fits`, Extension 1:
+- `_orig_cube.fits`, Extension 1:
     - The original cube, trimmed to the wavelength range defined by the `CONT: LMIN` and `CONT: LMAX` keywords. 
 
-- `_CONTcube.fits`, Extension 1:
+- `_cont_cube.fits`, Extension 1:
     - The bestfit to the continuum derived from full spectral fitting.
 
-- `_LINEcube.fits`, Extension 1:
+- `_line_cube.fits`, Extension 1:
     - The line-only cube, derived by original cube - continuum cube.
 
 ### Function returns
