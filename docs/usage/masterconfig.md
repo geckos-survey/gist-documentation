@@ -152,7 +152,7 @@ SFH :
   # number of moments used to extract the stellar kinematics before. Otherwise the parameter can be set independently.
   MDEG : 12 # Degree of the multiplicative Legendre polynomial. Set '0' to not include any multiplicative 
   # polynomials. Note that additive Legendre polynomials cannot be used for this module.
-  REGUL_ERR : 1000000. # Regularisation error for the regularised run of pPXF. Note: Regularisation = 1 / REGUL_ERR
+  REGUL : 1. # Regularisation keyword for the regularised run of pPXF. Higher value = smoother SFH.
   NOISE : 1. # Set a wavelength independent noise vector to be passed to pPXF.
   FIXED : True # Fix the stellar kinematics to the results obtained with the stellar kinematics module 
   # [True / False]. If 'False', please provide an initial guess on the velocity dispersion of the systems 
