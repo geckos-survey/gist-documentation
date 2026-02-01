@@ -18,7 +18,7 @@ Set up a separate Python environment to run nGIST in. The `ngistenv.yaml` file l
 conda env create -f ngistenv.yaml
 ```
 
-If you do not use conda or another package manager, make sure you are running nGIST using `python >3.11`, and the latest versions of `astropy`, `numpy`, `scipy`, `matplotlib`, `spectral-cube`, `extinction`, `pip`, `latex`, `pyqt5`, `joblib`, `h5py`, and `tqdm`.
+If you do not use conda or another package manager, make sure you are running nGIST using `python >3.11`, and the latest versions of `astropy`, `numpy`, `scipy`, `matplotlib`, `spectral-cube`, `extinction`, `pip`, `latex`, `pyqt5`, `joblib`, `h5py`, `multiprocess` and `tqdm` (all available from conda or conda-forge). From pip, you will also need `printStatus`, `ppxf`, `emcee`, `plotbin`, `vorbin`, `plotly`, and `pandas`.
 
 ### Installing nGIST 
 In your new Python environment navigate to the ngist/ folder and run 
@@ -48,7 +48,7 @@ rm -r ngistPipeline.egg-info
 pip install .
 ```
 
-### Using a different branch than main 
+### Using a different branch than main - only recommended for experienced users
 If you want to use a different branch than main, for example the dev-branch, go to your ngist/ folder and type 
 ```py
 git checkout dev-branch
