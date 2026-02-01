@@ -2,14 +2,14 @@
 
 ## Purpose 
 
-This module performs a full emission-line analysis of the observed spectra. nGIST is currently equipped with three routines that can readily be used by setting the configuration parameter `GAS: METHOD` to `ppxf`, `MAGPI-gandalf`, or `gandalf`.
+This module performs a full emission-line analysis of the observed spectra. nGIST is currently equipped with three routines that can readily be used by setting the configuration parameter `GAS: METHOD` to `ppxf`, or `gandalf`.
 
-### `pPXF` (recommended)
-Simultaneously fits the stellar continuum (using a set of SSPs) and emission lines (using a set of single-component Gaussian templates) to the spectra. This method is significantly faster than the gandalf and magpi-gandalf methods, and hence is the recommended method. This module is based on the PHANGS DAP emission line module, but includes the option of a 3-step sigma-clipping technique to accurately characterise the noise, and reject spurrious pixels. 
+### `pPXF`
+Simultaneously fits the stellar continuum (using a set of SSPs) and emission lines (using a set of single-component Gaussian templates) to the spectra. This method is significantly faster than the gandalf method, and hence is the recommended method. This module is based on the PHANGS DAP emission line module, but includes the option of a 3-step sigma-clipping technique to accurately characterise the noise, and reject spurrious pixels. 
 
-### `MAGPI-gandalf` and `gandalf`
-These routines employ a Python translation of the original GandALF routine by Sarzi et al. (2006) and Falcon-Barroso et al. (2006). The `gandalf` routine is that implemented by the original GIST pipeline and is not recommended as it is believed that the line fluxes are incorrect. The `MAGPI-gandalf` routine is that implemented by the MAGPI team, with differences mostly to do with Gandalf failing for some Voronoi bins, particularly those with low signal-to-noise ratio. Their fix was to take an MC approach to fitting by making slight changes to the starting guesses for the kinematic parameters. The new routine creates multiple
-starting guesses and takes the minimum χ2 of these. The initial guess is a 3×3 matrix of guesses around the stellar kinematics values. While testing is continuing, initial results are promising: the
+### `gandalf` (previously `MAGPI-gandalf`)
+This routine employs a Python translation of the original GandALF routine by Sarzi et al. (2006) and Falcon-Barroso et al. (2006). The `gandalf` routine implemented by the original GIST pipeline has been updated by the MAGPI team for nGIST, with changes aimed at reducing the number of spectra for which the galdalf fit fails, particularly at low signal-to-noise ratio. Their fix was to take an MC approach to fitting by making slight changes to the starting guesses for the kinematic parameters. The new routine creates multiple
+starting guesses and takes the minimum χ2 of these. The initial starting guess is a 3×3 matrix of guesses around the stellar kinematics values. While testing is continuing, initial results are promising: the
 new version of Gandalf seems to fit more bins (and in a sensible manner). However, the MC approach slows this module down considerably. 
 
 ---
@@ -31,7 +31,7 @@ GAS :
   FIXED : True # Fix the stellar kinematics to the results obtained with the stellar kinematics module [True / False]
   MOM : 2 # Gas moments. Set to 2 for V and sigma. Higher orders not yet tested
   EBmV : null # De-redden the spectra for the Galactic extinction in the direction of the target previously to the analysis. Use e.g. EBmV = A_v / 3.2
-  EMI_FILE : 'emissionLinesPHANGS.config' # Emission line set-up file for emline fittet. The specified path is relative to the configDir path in defaultDir.
+  EMI_FILE : 'emissionLines_ppxf.config' # Emission line set-up file for emline fitter. The specified path is relative to the configDir path in defaultDir. Set to 'emissionLines_ppxf.config' when using the 'ppxf' routine, and 'emissionLines_gandalf.config' when using the 'gandalf' routine.
   LSF_TEMP : 'lsf_MILES' # Path of the file specifying the line-spread-function of the spectral templates. The specified path is relative to the configDir path in defaultDir.
   TEMPLATE_SET : 'miles' # options are 'miles' or 'IndoUS'
   LIBRARY : 'MILES_EMLINES/' # options are 'MILES_EMLINES/' (contains asmaller subset of templates sim to that used by PHANGS) 'MILES/', 'miles_ssp_ch', or 'IndoUS'
@@ -44,19 +44,19 @@ GAS :
 
 All outputs can be available at the BIN and SPAXEL level.
 
-- `_gas_BIN.fits`: Extension 1:
+- `_gas_bin.fits`: Extension 1:
 
     - Columns: [LineName][LineWavelength]_*: F Flux; A Amplitude; V Velocity; S Sigma| EBmV_0 Screen-like extinction from the stellar continuum | EBmV_1 Extinction in emission-line regions from Balmer decrement
 
     - Rows: One line per bin/spaxel.
 
-- `_gas_BIN.fits` Extension 2:
+- `_gas_bin.fits` Extension 2:
 
     - Columns: Same as in extension 1, but for errors
 
     - Rows: One line per bin/spaxel.
 
-- `_gas-bestfit_BIN.fits`, Extension 1:
+- `_gas-bestfit_bin.fits`, Extension 1:
 
     - The best fit to the spectrum, including continuum and emission lines
 
@@ -64,25 +64,25 @@ All outputs can be available at the BIN and SPAXEL level.
 
     - Rows: One fit per bin/spaxel.
 
-- `_gas-bestfit_BIN.fits`, Extension 2:
+- `_gas-bestfit_bin.fits`, Extension 2:
 
     - Columns: LOGLAM The corresponding wavelength array
 
-- `_gas-bestfit_BIN.fits`, Extension 3:
+- `_gas-bestfit_bin.fits`, Extension 3:
 
     - Columns: GOODPIX The spectral pixels included in the fit
 
-- `_gas-cleaned_BIN.fits`: Extension 1:
+- `_gas-cleaned_bin.fits`: Extension 1:
 
     - Columns: SPEC Emission-line subtracted spectra
 
     - Rows: One line per bin/spaxel.
 
-- `_gas-cleaned_BIN.fits`: Extension 2:
+- `_gas-cleaned_bin.fits`: Extension 2:
 
     - Columns: `LOGLAM`: The corresponding wavelength array
 
-- `_gas_BIN_maps.fits`
+- `_gas_bin_maps.fits`
 
     - 2D maps images of various emission line quantities for each line.
 
