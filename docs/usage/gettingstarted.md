@@ -1,7 +1,7 @@
 # Getting started
 
 ### Running `nGIST`
-Once you have cloned the two github repositories and installed nGIST, you will be able to test the installation using the test cube, NGC 0000. nGIST is initially configured such that your working directory is `ngistTutorial/`. In this working directory, execute the following command:
+Once you have cloned the two github repositories and installed nGIST, you will be able to test the installation using the test cube, NGC0000. nGIST is initially configured such that your working directory is `ngistTutorial/`. In this working directory, execute the following command:
 
 ```
 ngistPipeline --config configFiles/MasterConfig.yaml --default-dir configFiles/defaultDir
@@ -14,31 +14,33 @@ Outputs are saved in the `ngistTutorial/results/RUN_NAME` folder, where the `RUN
 
 Current output files are:
 
-`_BinSpectra.hdf5` - a table containing the spatially binned log-rebinned spectra <br> 
-`_BinSpectra_linear.hdf5` - a table containing the spatially binned lin-binned spectra <br> 
+`_bin_spectra.hdf5` - a table containing the spatially binned log-rebinned spectra. <br> 
+`_bin_spectra_linear.hdf5` - a table containing the spatially binned lin-binned spectra. <br> 
+`_all_spectra.hdf5` - if GAS is run in SPAXEL mode, a table containing all log-rebinned spectra. <br> 
+`_all_spectra_linear.hdf5` - if GAS is run in SPAXEL mode, a table containing all lin-binned spectra. <br> 
 `_table.fits` - a table used to reconstruct 2D maps files based on the Voronoi binning.
-`_mask.fits` <br> 
-`_kin.fits` - a table containing the stellar kinematics results <br> 
-`_kin-bestfit.fits` <br> 
-`_kin-optimalTemplates.fits` <br> 
-`_kin-SpectralMask.fits` <br> 
-`_KIN_maps.fits` <br> 
-`_CONTcube.fits` - an emission line-subtracted continuum cube <br> 
-`_LINEcube.fits` - a continuum-subtracted line cube <br> 
-`_ORIGcube.fits` <br> 
-`_gas_BIN/SPX.fits` - a table containing the Voronoi binned (BIN) or spaxel-level (SPX) emission line results <br> 
-`_gas_BIN/SPX_maps.fits` <br> 
-`_gas-bestfit_BIN/SPX.fits` <br> 
-`_gas-cleaned_BIN/SPX.fits` <br> 
-`_SFH_maps.fits` <br> 
-`_sfh-bestfit.fits` <br> 
-`_sfh-weights.fits` <br> 
+`_mask.fits` - contains information on the spatial masking. <br> 
+`_kin.fits` - a table containing the stellar kinematics results. <br> 
+`_kin-bestfit.fits` - the bestfit to the spectra. <br> 
+`_kin-optimal_templates.fits` - optimal templates for the fit to each bin. <br> 
+`_kin-spectral_mask.fits` - spectral mask. <br> 
+`_kin_maps.fits` - fits file containing 2D maps of the output kinematic properties. <br> 
+`_cont_cube.fits` - an emission line-subtracted continuum cube. <br> 
+`_line_cube.fits` - a continuum-subtracted line cube. <br> 
+`_orig_cube.fits` - the orginal cube, trimmed to the wavelength range used for the CONT module. <br> 
+`_gas_bin/spx.fits` - a table containing the Voronoi binned (BIN) or spaxel-level (SPX) emission line results. <br> 
+`_gas_bin/spx_maps.fits` - fits file containing 2D maps of the output emission line properties. <br> 
+`_gas-bestfit_bin/spx.fits` - the best fit to the spectra. <br> 
+`_gas-cleaned_bin/spx.fits` - emission line-subtracted spectra. <br> 
+`_sfh_maps.fits` - fits file containing 2D maps of the output stellar population properties. <br> 
+`_sfh-bestfit.fits` - the bestfit to the spectra. <br> 
+`_sfh-weights.fits` - the weights assigned to each template during the fit. <br> 
 `_sfh.fits`  - a table containing the stellar populations results <br> 
-`_LS_ADAPTED_maps.fits` <br> 
-`_LS_ORIGINAL_maps.fits` <br> 
-`_ls_AdapRes.fits` <br> 
-`_ls_OrigRes.fits` <br> 
-`_ls-cleaned_linear.fits` <br> 
+`_ls_adapted_maps.fits` - fits file containing 2D maps of the output adapted spectral resolution line strength properties. <br> 
+`_ls_original_maps.fits` - fits file containing 2D maps of the output original spectral resolution line strength properties. <br> 
+`_ls_AdapRes.fits` - line strength indices and their errors as estimated from MC-simulations for adapted sprectral resolution. <br> 
+`_ls_OrigRes.fits`  - line strength indices and their errors as estimated from MC-simulations for original sprectral resolution. <br> 
+`_ls-cleaned_linear.fits` - emission-subtracted, linearly binned spectra. <br> 
 
 
 ### Visualising your results 
