@@ -2,7 +2,7 @@
 
 Issues with installation and running? Below we list a couple of common problems encountered.
 
-### Issues with updating gist-geckos 
+### Issues with updating nGIST 
 
 If you have any issues with the code not updating, try 
 ```py
