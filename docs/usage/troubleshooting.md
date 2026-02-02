@@ -23,7 +23,7 @@ Numpy has recently been updated to version 2 and introduced a new C API/ABI. Thi
 This behaviour has been reported on a handful of servers. If this happens to you, we suggest installing packages manually with the only package requirements of python=3.11 and numpy<1.27. 
 If you are using conda, first install the packages listed in the environment YAML that are available on conda or conda forge, then install the rest with pip.
 
-Alternatively, you could try mamba (https://github.com/mamba-org/mamba). It’s built on conda so fully compatible but designed to be faster and more robust: 
+Alternatively, you could try [mamba](https://github.com/mamba-org/mamba). It’s built on conda so fully compatible but designed to be faster and more robust: 
 
 ```py
 ## prioritize 'conda-forge' channel
