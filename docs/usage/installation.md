@@ -37,16 +37,6 @@ and then reinstall any new updates using pip:
 ```py
 pip install .
 ```
-If you have any issues with the code not updating, try 
-```py
-pip uninstall ngistPipeline
-pip install .
-```
-If even that doesn't work, remove the .egg directory
-```py
-rm -r ngistPipeline.egg-info
-pip install .
-```
 
 ### Using a different branch than main - only recommended for experienced users
 If you want to use a different branch than main, for example the dev-branch, go to your ngist/ folder and type 
