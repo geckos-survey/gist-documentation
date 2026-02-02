@@ -56,6 +56,7 @@ nav:
     - 'Getting started': 'usage/gettingstarted.md'
     - 'Configuration': 'usage/configuration.md'
     - 'The MasterConfig.yaml file': 'usage/masterconfig.md'
+    - 'Troubleshooting': 'usage/troubleshooting.md'
   - Modules: 
     - 'Read data': 'modules/read_data.md'
     - 'Spatial masking': 'modules/spatial_masking.md'
