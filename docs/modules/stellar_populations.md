@@ -22,7 +22,7 @@ SFH :
   SPEC_EMICLEAN : False # Keyword (True/False) to enable/disable the use of emission line cleaned spectra from the Emission Line Fitting Module. 
   MOM : 4 # Number of kinematic moments to be extracted. If you use FIXED = True, this should be same number of moments used to extract the stellar kinematics before. Otherwise the parameter can be set independently.
   MDEG : 12 # Degree of the multiplicative Legendre polynomial. Set '0' to not include any multiplicative polynomials. Note that additive Legendre polynomials cannot be used for this module.
-  REGUL_ERR : 1000000. # Regularisation error for the regularised run of pPXF. Note: Regularisation = 1 / REGUL_ERR
+  REGUL : 1. # Regularisation for the regularised run of pPXF. Note: the old GIST keyword REGUL_ERR also still works. In that instance, regularisation = 1 / REGUL_ERR
   NOISE : 1. # Set a wavelength independent noise vector to be passed to pPXF.
   FIXED : True # Fix the stellar kinematics to the results obtained with the stellar kinematics module [True / False]. If 'False', please provide an initial guess on the velocity dispersion of the systems [in km/s] by adding the parameter SIGMA.
   MC_PPXF : 0 # Added to add the option of running MC on the SFH module
