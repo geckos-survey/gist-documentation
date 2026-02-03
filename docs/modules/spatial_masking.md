@@ -5,7 +5,7 @@ nGIST is currently equipped with one routine to mask spatial regions in the IFU 
 
 - It masks defunct spaxels, i.e. spaxels with negative mean values or those containing np.nan’s.
 
-- It applies a signal-to-noise threshold masking spaxels below the level defined by `SPATIAL_MASKING: MIN_SNR`. The 'isophote' method identifies the 2D flux isophote whose enclosed region has a mean signal-to-noise ratio equal to `MIN_SNR`, and uses this isophote as the lower boundary of the spatial mask. The 'actual' method applies `MIN_SNR` directly to the SNR map to define the mask. The 'smooth' method first smooths the SNR map with a Gaussian kernel (σ = 5 pixels), and then applies `MIN_SNR` to define the mask.
+- It applies a signal-to-noise threshold masking spaxels below the level defined by `SPATIAL_MASKING: MIN_SNR`. The `'isophote'` method identifies the 2D flux isophote whose enclosed region has a mean signal-to-noise ratio equal to `MIN_SNR`, and uses this isophote as the lower boundary of the spatial mask. The `'actual'` method applies `MIN_SNR` directly to the SNR map to define the mask. The `'smooth'` method first smooths the SNR map with a Gaussian kernel (σ = 5 pixels), and then applies `MIN_SNR` to define the mask.
 
 - It applies a manually defined mask. In particular, it reads a fits-file which path is given by the parameter `SPATIAL_MASKING:MASK` (path relative to `GENERAL:INPUT`; set to False to turn this option off). The file is expected to have the same spatial dimensions as the input IFU cube. Unmasked spaxels should have the value 0, while masked spaxels should have the value 1.
 
