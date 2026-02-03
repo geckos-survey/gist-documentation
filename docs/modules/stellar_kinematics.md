@@ -106,15 +106,13 @@ KIN :
 The module should end with `return(None)`. If an uncaught exception occurs in the module, all following modules will be skipped for this galaxy. If you intend to manually skip all subsequent modules, simply raise an exception.
 
 ## Examples
-![]({{ site.baseurl }}/images/IC1711_iDR1_SN100_5_LW_nGIST_bias0.14_plot_kin_bin_1873_step3.png)
+ ![](../images/IC1711_iDR1_SN100_5_LW_oGIST_bias0.14_plot_kin_bin_882_step3.png)
+ ![](../images/IC1711_iDR1_SN100_5_LW_nGIST_bias0.14_plot_kin_bin_882_step3.png)
 
- ![](/docs/images/IC1711_iDR1_SN100_5_LW_oGIST_bias0.14_plot_kin_bin_882_step3.png)
- ![](/docs/images/IC1711_iDR1_SN100_5_LW_nGIST_bias0.14_plot_kin_bin_882_step3.png)
+ ![](../images/IC1711_iDR1_SN100_5_LW_oGIST_bias0.14_plot_kin_bin_1873_step3.png)
+ ![](../images/IC1711_iDR1_SN100_5_LW_nGIST_bias0.14_plot_kin_bin_1873_step3.png)
 
- ![](/docs/images/IC1711_iDR1_SN100_5_LW_oGIST_bias0.14_plot_kin_bin_1873_step3.png)
- ![](/docs/images/IC1711_iDR1_SN100_5_LW_nGIST_bias0.14_plot_kin_bin_1873_step3.png)
-
- ![](/docs/images/IC1711_iDR1_SN100_5_LW_oGIST_bias0.14_plot_kin_bin_1949_step3.png)
- ![](/docs/images/IC1711_iDR1_SN100_5_LW_nGIST_bias0.14_plot_kin_bin_1949_step3.png)
+ ![](../images/IC1711_iDR1_SN100_5_LW_oGIST_bias0.14_plot_kin_bin_1949_step3.png)
+ ![](../images/IC1711_iDR1_SN100_5_LW_nGIST_bias0.14_plot_kin_bin_1949_step3.png)
  
 *Comparison of the masking and subsequent pPXF best-fit for three Voronoi bins of the GIST (top) and nGIST (bottom) fits from [Fraser-McKelvie et al., 2025](https://scixplorer.org/abs/2025A%26A...700A.237F/abstract). In each case the original spectrum of the bin is shown as a black line. The emission and sky line masks provided to pPXF are  shown as the shaded grey regions. nGIST additionally performs further cleaning of the spectra, and these additional clipped regions are shown as  shaded red regions. The best fit to the stellar continuum is shown in red, and the residuals in green. The derived stellar kinematic parameters for  each spectrum are also listed.*
