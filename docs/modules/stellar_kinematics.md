@@ -106,6 +106,7 @@ KIN :
 The module should end with `return(None)`. If an uncaught exception occurs in the module, all following modules will be skipped for this galaxy. If you intend to manually skip all subsequent modules, simply raise an exception.
 
 ## Examples
+![]({{ site.baseurl }}/images/IC1711_iDR1_SN100_5_LW_nGIST_bias0.14_plot_kin_bin_1873_step3.png)
 
  ![](/docs/images/IC1711_iDR1_SN100_5_LW_oGIST_bias0.14_plot_kin_bin_882_step3.png)
  ![](/docs/images/IC1711_iDR1_SN100_5_LW_nGIST_bias0.14_plot_kin_bin_882_step3.png)
