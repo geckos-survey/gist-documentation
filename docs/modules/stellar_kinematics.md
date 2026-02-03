@@ -1,15 +1,33 @@
 # Stellar kinematics
 
 ## Purpose 
-The `stellarKinematics` module measures the stellar kinematics of the observed spectra. nGIST is currently equipped with one routine that can readily be used by setting the configuration parameter `KIN: METHOD` to `'ppxf'`. In particular, this routine employs the pPXF routine of Cappellari and Emsellem (2004). More precisely:
+The `stellarKinematics` module measures the stellar kinematics of the observed spectra. nGIST is currently equipped with one routine that can readily be used by setting the configuration parameter `KIN: METHOD` to `'ppxf'`. In particular, this module employs the pPXF routine of Cappellari and Emsellem (2004). More precisely:
 
-- Initial guesses: The used initial guess for the stellar velocity is 0 (as all spectra have been shifted to rest-frame). The initial guess for the velocity dispersion is defined in the configuration parameter `KIN: SIGMA`. Alternatively, one can define initial guesses for all bins separately, i.e. by supplying the file `*_kin-guess.fits` in the output directory before the run. This file must contain a column `V` and `SIGMA` (as in the output file `*_kin.fits`), defining an initial guess for each spatial bin.
+- Initial guesses: The used initial guess for the stellar velocity is 0 (as all spectra have been shifted to rest-frame wavelengths). The initial guess for the velocity dispersion is defined in the configuration parameter `KIN: SIGMA`. Alternatively, one can define initial guesses for all bins separately, i.e. by supplying the file `*_kin-guess.fits` in the output directory before the run. This file must contain a column `V` and `SIGMA` (as in the output file `*_kin.fits`), defining an initial guess for each spatial bin.
 
 - A spectral mask is applied, according to the masking file defined by `KIN: SPEC_MASK`. See Configuration for details.
 
 - The module calculates the stellar velocity, sigma, and higher-order velocity moments (depending on how many are specified, currently up to 6 have been tested). An iterative sigma-clipping process can be turned on to clean the spectra.
 
-- A set of SSP templates must be input. Currently, nGIST has been tested on the MILES stars and SSPs, eMILES, SMILES libraries, the IndoUS library, the X-shooter stellar library, and Walcher+2009 templates. Only the MILES library is included in the default nGIST distribution, though any other library can be employed by writing a read-in module for it, following the example in your `/ngist/ngistPipeline/prepareTemplates/miles.py` directory. 
+- A set of stellar or SSP templates must be input. Currently, nGIST has been tested on the MILES stars and SSPs, eMILES, and SMILES libraries, the IndoUS library, the X-shooter stellar and SSP library, and Walcher+2009 templates. Only the MILES library is included in the default nGIST distribution, though any other library can be employed by writing a read-in module for it, following the example in your `/ngist/ngistPipeline/prepareTemplates/miles.py` directory.
+
+**Fitting procedure**: This module uses a multi-step fitting approach to determine the best-fit parameters. nGIST first measures and then applies (optional) a dust correction (`DUST_CORR`), determines an optimal template set (`OPT_TEMP`, optional), rescales the noise, and cleans (`DOCLEAN`, optional) the spectrum of outliers (e.g. >3σ noise, sky lines, and emission lines).
+
+To speed up the overall fitting process, the `OPT_TEMP` keyword can be used to pass a subset of templates to pPXF during the preparation steps (`DUST_CORR`, noise rescaling, and `DOCLEAN`). Note that in the final fit (used to determine the best-fit parameters), all templates are always provided. If `OPT_TEMP` is set to `galaxy_single` or `galaxy_set`, pPXF is first run once on a single mean spectrum of the entire datacube to identify templates with non-zero weights. For `galaxy_single`, these templates are combined into a single ‘optimal’ template, whereas `galaxy_set` passes all non-zero-weight templates to pPXF during the preparation steps. If `OPT_TEMP` is set to `default`, the optimal template set from the dust preparation step is used.
+
+In the dust preparation step, nGIST determines a best-fit dust vector following the procedure described in Cappellari (2023). No additive or multiplicative polynomials are used in this fit. If `DUST_CORR: True`, all consecutive fits will use this dust vector within pPXF as a fixed component.
+
+Next, a new estimate of the noise is derived by fitting the spectrum using pPXF with a constant noise vector. The input noise vector (either variance or constant) is rescaled using the bi-weight estimate (~standard deviation) of the fit residuals (data minus the best-fit model).
+
+If `DOCLEAN : True`, we use the `clip_outlier` function to remove all 3σ outliers based on the best-fit from the noise estimation step.
+
+In the final step, pPXF is run with all templates to determine the best-fit parameters.
+
+**Notes**
+-	The `DEBUG` keyword within the module can be used to fit specific bin(s), which can be useful when debugging. This option only works if `PARALLEL` is set to `False` in `GENERAL`.
+-	The `PLOT` keyword within the module can be used to provide two figures for each spaxel. The first figure (step 1) shows the spectrum (black), the best-fit (red), and residuals (green) from the noise preparation step, whereas the second figure (step 3) shows the results of the final fit. Here, the vertical grey lines are the input mask, and the vertical pink lines show the spectral regions masked by `DOCLEAN = True`.
+Using `PLOT = True` will slow down the fit significantly and will create a large number of files if you are fitting many bins.
+
 
 ## Config file input 
 
