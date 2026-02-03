@@ -19,7 +19,7 @@ In the dust preparation step, nGIST determines a best-fit dust vector following 
 
 Next, a new estimate of the noise is derived by fitting the spectrum using pPXF with a constant noise vector. The input noise vector (either variance or constant) is rescaled using the bi-weight estimate (~standard deviation) of the fit residuals (data minus the best-fit model).
 
-If `DOCLEAN : True`, we use the `clip_outlier` function to remove all 3σ outliers based on the best-fit from the noise estimation step.
+If `DOCLEAN: True`, we use the `clip_outlier` function to remove all 3σ outliers based on the best-fit from the noise estimation step.
 
 In the final step, pPXF is run with all templates to determine the best-fit parameters.
 
