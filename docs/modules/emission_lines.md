@@ -5,7 +5,7 @@
 This module performs a full emission-line analysis of the observed spectra. nGIST is currently equipped with three routines that can readily be used by setting the configuration parameter `GAS: METHOD` to `ppxf`, or `gandalf`.
 
 ### `pPXF`
-Simultaneously fits the stellar continuum (using a set of SSPs) and emission lines (using a set of single-component Gaussian templates) to the spectra. This method is significantly faster than the gandalf method, and hence is the recommended method. This module is based on the PHANGS DAP emission line module, but includes the option of a 3-step sigma-clipping technique to accurately characterise the noise, and reject spurrious pixels. The emission line flux outputs are in the units of ⨉10^-17 erg/s/cm^2/SPAXEL. This value is divided by the number of spaxels per Voronoi bin for the binned data.
+Simultaneously fits the stellar continuum (using a set of SSPs) and emission lines (using a set of single-component Gaussian templates) to the spectra. This method is significantly faster than the gandalf method, and hence is the recommended method. This module is based on the PHANGS DAP emission line module, but includes the option of a 3-step sigma-clipping technique to accurately characterise the noise, and reject spurrious pixels. The emission line flux outputs are in the units of the input cube (i.e. the BUNIT header keyword). This value is divided by the number of spaxels per Voronoi bin for the binned data.
 
 ### `gandalf` (previously `MAGPI-gandalf`)
 This routine employs a Python translation of the original GandALF routine by Sarzi et al. (2006) and Falcon-Barroso et al. (2006). The `gandalf` routine implemented by the original GIST pipeline has been updated by the MAGPI team for nGIST, with changes aimed at reducing the number of spectra for which the galdalf fit fails, particularly at low signal-to-noise ratio. Their fix was to take an MC approach to fitting by making slight changes to the starting guesses for the kinematic parameters. The new routine creates multiple
@@ -44,7 +44,7 @@ All outputs can be available at the BIN and SPAXEL level.
 
 - `_gas_bin.fits`: Extension 1:
 For pPXF:
-  - Columns: [LineName][Linewavelength] *: Flux [⨉10^-17 erg/s/cm^2/SPAXEL], Flux error [⨉10^-17 erg/s/cm^2/SPAXEL], Vel [km/s], Vel error [km/s], sigma [km/s], sigma error [km/s], sigma_corr.
+  - Columns: [LineName][Linewavelength] *: Flux, Flux error, Vel [km/s], Vel error [km/s], sigma [km/s], sigma error [km/s], sigma_corr.
     Beware! The gas sigma here is sigma_observed and must be corrected for instrumental resolution effects to obtain the astrophysical Doppler broadening. You can use the formula sigma^2_intrinsic = sigma^2 - sigma_corr^2.
 
 For gandalf:
